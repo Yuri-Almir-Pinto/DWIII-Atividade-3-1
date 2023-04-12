@@ -22,9 +22,9 @@ public class ProcessoVagaServlet extends HttpServlet {
         Candidato c = new Candidato();
         boolean error = false;
 
-        error = c.setNome(request.getParameter("field_nome"));
+        error |= c.setNome(request.getParameter("field_nome"));
 
-        error = c.setDataNasc(request.getParameter("field_dataNasc"));
+        error |= c.setDataNasc(request.getParameter("field_dataNasc"));
 
         c.setIdioma(request.getParameter("field_idiomaNativo"));
 
@@ -33,8 +33,6 @@ public class ProcessoVagaServlet extends HttpServlet {
         if (error) {
             response.sendRedirect("http://localhost:8080/DWIII_Atividade_3_war_exploded/");
         }
-
-        System.out.println(error);
 
         PrintWriter out = response.getWriter();
 
